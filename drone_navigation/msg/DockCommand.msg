@@ -1,0 +1,2 @@
+string command
+geometry_msgs/Pose target_pose

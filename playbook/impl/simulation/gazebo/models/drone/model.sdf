@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.9">
+  <model name="collection_drone">
+    <static>false</static>
+    
+    <!-- Base Link -->
+    <link name="base_link">
+      <pose>0 0 0 0 0 0</pose>
+      <inertial>
+        <mass>5.0</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <iyy>0.01</iyy>
+          <izz>0.02</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.15</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.15</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 0 0 1</ambient>
+          <diffuse>1 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <!-- Arms -->
+    <link name="arm_fl">
+      <pose>0.35 0.35 0 0 0 0.785</pose>
+      <inertial>
+        <mass>0.2</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <iyy>0.001</iyy>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>0.5</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>0.5</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1</ambient>
+        </material>
+      </visual>
+    </link>
+
+    <link name="arm_fr">
+      <pose>0.35 -0.35 0 0 0 -0.785</pose>
+      <inertial>
+        <mass>0.2</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <iyy>0.001</iyy>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>0.5</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>0.5</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1</ambient>
+        </material>
+      </visual>
+    </link>
+
+    <link name="arm_rl">
+      <pose>-0.35 0.35 0 0 0 -0.785</pose>
+      <inertial>
+        <mass>0.2</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <iyy>0.001</iyy>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>0.5</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>0.5</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1</ambient>
+        </material>
+      </visual>
+    </link>
+
+    <link name="arm_rr">
+      <pose>-0.35 -0.35 0 0 0 0.785</pose>
+      <inertial>
+        <mass>0.2</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <iyy>0.001</iyy>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>0.5</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>0.5</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1</ambient>
+        </material>
+      </visual>
+    </link>
+
+    <!-- Rotors -->
+    <link name="rotor_fl">
+      <pose>0.5 0.5 0.1 0 0 0</pose>
+      <inertial>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <iyy>0.001</iyy>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>0.15</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>0.15</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+        </material>
+      </visual>
+    </link>
+
+    <link name="rotor_fr">
+      <pose>0.5 -0.5 0.1 0 0 0</pose>
+      <inertial>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <iyy>0.001</iyy>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>0.15</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>0.15</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+        </material>
+      </visual>
+    </link>
+
+    <link name="rotor_rl">
+      <pose>-0.5 0.5 0.1 0 0 0</pose>
+      <inertial>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <iyy>0.001</iyy>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>0.15</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>0.15</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+        </material>
+      </visual>
+    </link>
+
+    <link name="rotor_rr">
+      <pose>-0.5 -0.5 0.1 0 0 0</pose>
+      <inertial>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <iyy>0.001</iyy>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>0.15</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>0.15</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+        </material>
+      </visual>
+    </link>
+
+    <!-- Cargo Bay -->
+    <link name="cargo_bay">
+      <pose>0 0 -0.1 0 0 0</pose>
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <iyy>0.01</iyy>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.3 0.3 0.15</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>0.3 0.3 0.15</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 1 0 1</ambient>
+        </material>
+      </visual>
+    </link>
+
+    <!-- Joints: Arms to base -->
+    <joint name="arm_fl_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>arm_fl</child>
+    </joint>
+    <joint name="arm_fr_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>arm_fr</child>
+    </joint>
+    <joint name="arm_rl_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>arm_rl</child>
+    </joint>
+    <joint name="arm_rr_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>arm_rr</child>
+    </joint>
+
+    <!-- Joints: Rotors to arms -->
+    <joint name="rotor_fl_joint" type="revolute">
+      <parent>arm_fl</parent>
+      <child>rotor_fl</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+      </axis>
+    </joint>
+    <joint name="rotor_fr_joint" type="revolute">
+      <parent>arm_fr</parent>
+      <child>rotor_fr</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+      </axis>
+    </joint>
+    <joint name="rotor_rl_joint" type="revolute">
+      <parent>arm_rl</parent>
+      <child>rotor_rl</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+      </axis>
+    </joint>
+    <joint name="rotor_rr_joint" type="revolute">
+      <parent>arm_rr</parent>
+      <child>rotor_rr</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+      </axis>
+    </joint>
+
+    <!-- Joint: Cargo bay -->
+    <joint name="cargo_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>cargo_bay</child>
+    </joint>
+
+    <!-- ROS2 Control Plugin for Multirotor -->
+    <plugin name="gazebo_ros_multirotor" filename="libgazebo_ros_multirotor.so">
+      <ros>
+        <namespace>/drone</namespace>
+      </ros>
+      <update_rate>20</update_rate>
+      
+      <!-- Motors -->
+      <link name="rotor_fl"/>
+      <link name="rotor_fr"/>
+      <link name="rotor_rl"/>
+      <link name="rotor_rr"/>
+      
+      <!-- Control parameters -->
+      <motor_speed>1000</motor_speed>
+      <max_thrust>60</max_thrust>
+      
+      <!-- Topics -->
+      <cmd_motor_velocity_topic>/drone/motor_velocity</cmd_motor_velocity_topic>
+      <imu_topic>/drone/imu</imu_topic>
+      
+      <!-- Vehicle configuration -->
+      <vehicle>quadrotor</vehicle>
+      <mass>5.0</mass>
+      <gravity>9.81</gravity>
+    </plugin>
+
+    <!-- GPS Plugin -->
+    <plugin name="gazebo_ros_gps" filename="libgazebo_ros_gps.so">
+      <ros>
+        <namespace>/drone</namespace>
+      </ros>
+      <update_rate>10</update_rate>
+      <gps_noise>true</gps_noise>
+      <position_topic>/drone/gps</position_topic>
+      <velocity_topic>/drone/gps/vel</velocity_topic>
+    </plugin>
+  </model>
+</sdf>

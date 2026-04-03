@@ -1,0 +1,34 @@
+# Truck Navigation Parameters
+
+truck_navigation:
+  ros__parameters:
+    # Node names
+    truck_id: "truck_001"
+    
+    # Localization
+    use_rtk: true
+    gps_frame: "gps"
+    base_frame: "base_link"
+    map_frame: "map"
+    
+    # Navigation
+    max_speed: 5.0  # m/s
+    min_speed: 1.0  # m/s
+    acceleration_limit: 0.5  # m/s²
+    deceleration_limit: 1.0  # m/s²
+    planner: "smac_planner"
+    
+    # Trajectory prediction
+    prediction_horizon: 60  # seconds
+    prediction_resolution: 1.0  # seconds
+    update_rate: 1.0  # Hz
+    model_weights: 0.3  # EKF weight
+    
+    # Telemetry
+    publish_rate: 10.0  # Hz
+    telemetry_topic: "/telemetry/camion"
+    
+    # Safety
+    emergency_stop_enabled: true
+    geofence_enabled: true
+    min_battery_percent: 20.0

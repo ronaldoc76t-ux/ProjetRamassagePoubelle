@@ -1,0 +1,132 @@
+# simulation/config/simulation.yaml
+# OpenClaw Simulation Configuration
+
+simulation:
+  name: "openclaw_autonomous_collection"
+  version: "1.0"
+  
+  # World settings
+  world:
+    file: "openclaw_world.sdf"
+    time_scale: 1.0  # 1.0 = real-time, 2.0 = 2x speed
+    
+  # Duration settings
+  duration:
+    default: 300  # seconds
+    min: 60
+    max: 3600
+  
+  # Truck settings
+  truck:
+    model: "autonomous_truck"
+    name: "truck_001"
+    initial_pose:
+      x: 0
+      y: 0
+      z: 0.8
+      roll: 0
+      pitch: 0
+      yaw: 0
+    max_speed: 15  # m/s
+    trajectory: "loop"  # loop, back_and_forth, waypoints
+  
+  # Drone settings
+  drones:
+    count: 3
+    model: "collection_drone"
+    initial_altitude: 10  # meters
+    max_speed: 10  # m/s
+    max_flight_time: 600  # seconds
+    battery_capacity: 5000  # mAh
+    
+  # Scenarios
+  scenarios:
+    - name: "nominal"
+      description: "Normal traffic, clear weather"
+      truck_speed: 10
+      drone_count: 3
+      obstacles: false
+      
+    - name: "high_traffic"
+      description: "Dense traffic with moving obstacles"
+      truck_speed: 8
+      drone_count: 3
+      obstacles: true
+      obstacle_count: 10
+      
+    - name: "low_battery"
+      description: "Drones start with 30% battery"
+      truck_speed: 10
+      drone_count: 3
+      initial_battery: 30
+      
+    - name: "gnss_loss"
+      description: "GPS signal lost, use alternative localization"
+      truck_speed: 5
+      drone_count: 2
+      gnss_enabled: false
+      
+    - name: "emergency"
+      description: "Emergency stop scenario"
+      truck_speed: 0
+      drone_count: 3
+      emergency_stop: true
+  
+  # Metrics to collect
+  metrics:
+    - name: "docking_success_rate"
+      description: "Percentage of successful dockings"
+      target: 0.90  # 90%
+      
+    - name: "timing_precision"
+      description: "Average timing error in rendezvous"
+      unit: "seconds"
+      target: 0.5  # 500ms
+      
+    - name: "battery_efficiency"
+      description: "Average battery remaining after mission"
+      unit: "percent"
+      target: 25  # 25%
+      
+    - name: "failover_time"
+      description: "Time to recover from failure"
+      unit: "seconds"
+      target: 30  # 30s
+      
+    - name: "collision_count"
+      description: "Number of collisions detected"
+      target: 0
+      
+    - name: "communication_latency"
+      description: "End-to-end communication latency"
+      unit: "milliseconds"
+      target: 100  # 100ms
+  
+  # ROS2 topics to record
+  recording:
+    topics:
+      - /truck/cmd_vel
+      - /truck/odometry
+      - /truck/gps
+      - /drone*/cmd_vel
+      - /drone*/pose
+      - /drone*/battery_state
+      - /drone*/dock_status
+      - /orchestrator/*
+    bag: true
+    csv: true
+  
+  # Failures to simulate
+  failures:
+    - type: "communication_loss"
+      probability: 0.05
+      duration: 10
+      
+    - type: "battery_critical"
+      threshold: 20
+      
+    - type: "gnss_failure"
+      probability: 0.02
+      
+    - type: "collision"
+      probability: 0.01
